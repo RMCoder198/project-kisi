@@ -6,6 +6,7 @@ import Action from "./actions/Action";
 import Reducer from "./reducers/Reducer";
 import promise from "redux-promise-middleware";
 import thunk from "redux-thunk";
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
@@ -21,7 +22,9 @@ let store = createStore(Reducer, middleware);
 
 ReactDom.render(
   <Provider store={store}>
-    <App />
+  <Router>
+    <Route path="/" component={App}/>
+  </Router>
   </Provider>,
   document.getElementById("app")
 );
